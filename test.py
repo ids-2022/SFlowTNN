@@ -11,6 +11,8 @@ from torchvision.datasets import ImageFolder
 from sklearn.model_selection import train_test_split
 from text_cnn import MyTextCnn
 from datetime import datetime
+import sys
+
 
 def predict(input_path, model_path):
     input_path=input_path
@@ -34,9 +36,9 @@ def predict(input_path, model_path):
         final_trulab.extend(b_y)
     return final_trulab,final_prelab
 
-if "__name__" == "__main__":
-    input_path="intrusion/"# input files path
-    model_path="intrusion.pkl"# predict model path
+if __name__ == '__main__':
+    input_path=sys.argv[1]
+    model_path=sys.argv[2]
     predict(input_path, model_path)
 
 
